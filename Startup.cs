@@ -27,10 +27,38 @@ namespace EmployeeWebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices ( IServiceCollection services )
         {
+
+            services.AddCors ( options =>
+            {
+                options.AddPolicy ( "AllowSpecificOrigin",
+                    builder =>
+                    {
+                        builder.WithOrigins ( "http://example.com" );
+
+
+                    } );
+                options.AddPolicy ( "AllowSpecificOrigin",
+
+                    builder =>
+                    {
+                        builder.WithOrigins ( "http://127.0.0.1:5500" )
+                        .AllowAnyHeader ()
+                        .AllowAnyMethod ();
+                    } );
+            } );
+
+
+            //services.AddCors ( o => o.AddPolicy ( "AllowSpecificOrigin", builder =>
+            //{
+            //    builder.AllowAnyOrigin ()
+            //           .AllowAnyMethod ()
+            //           .AllowAnyHeader ();
+            //} ) );
+
             services.AddControllers ();
             // Inserción de dependencias
-            services.AddDbContext<EmployeeWebAPIContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("EmployeeWebAPIContext")));
+            services.AddDbContext<EmployeeWebAPIContext> ( options =>
+                      options.UseSqlServer ( Configuration.GetConnectionString ( "EmployeeWebAPIContext" ) ) );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,9 +69,18 @@ namespace EmployeeWebAPI
                 app.UseDeveloperExceptionPage ();
             }
 
+            // configurar JS y HTMl
+            //app.UseDefaultFiles ();
+
+            //app.UseStaticFiles ();
+
+         
+
             app.UseHttpsRedirection ();
 
             app.UseRouting ();
+
+            app.UseCors ();
 
             app.UseAuthorization ();
 

@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using EmployeeWebAPI.Data;
 using EmployeeWebAPI.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace EmployeeWebAPI.Controllers
 {
+    [EnableCors ( "AllowSpecificOrigin" )]
     [Route ( "api/[controller]" )]
     [ApiController]
     public class EmployeesController : ControllerBase
@@ -31,11 +33,19 @@ namespace EmployeeWebAPI.Controllers
             return await _context.Employee.ToListAsync ();
         }
 
-        //public string Get ( )
+        //public string GetEmployee ( )
         //{
         //    return "HELLO WORLD";
         //}
 
+        //public string GetEmployee ( string name )
+        //{
+        //    if(name == null)
+        //    {
+        //        return "HELLO WORLD jijij";
+        //    }
+        //    return "HELLO " + name;
+        //}
 
         // GET: api/Employees/5
         [HttpGet ( "{id}" )]

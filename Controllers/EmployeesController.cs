@@ -16,6 +16,7 @@ namespace EmployeeWebAPI.Controllers
     {
         private readonly EmployeeWebAPIContext _context;
 
+        // Se ha pasado el contexto por el constructor mediante Inyección de dependencias que viene del Startup
         public EmployeesController(EmployeeWebAPIContext context)
         {
             _context = context;

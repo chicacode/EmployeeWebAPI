@@ -14,9 +14,11 @@ namespace EmployeeWebAPI.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
+        // solo de lectura
         private readonly EmployeeWebAPIContext _context;
 
         // Se ha pasado el contexto por el constructor mediante Inyección de dependencias que viene del Startup
+        // De aqui se puede acceder al context y del Context se accede a la base de datos física
         public EmployeesController(EmployeeWebAPIContext context)
         {
             _context = context;

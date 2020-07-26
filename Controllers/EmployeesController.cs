@@ -26,10 +26,14 @@ namespace EmployeeWebAPI.Controllers
 
         // GET: api/Employees
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
+        public string Get ( )
         {
-            return await _context.Employee.ToListAsync();
+            return "HELLO WORLD";
         }
+        //public async Task<ActionResult<IEnumerable<Employee>>> GetEmployee()
+        //{
+        //    return await _context.Employee.ToListAsync();
+        //}
 
         // GET: api/Employees/5
         [HttpGet("{id}")]

@@ -48,12 +48,6 @@ namespace EmployeeWebAPI
             } );
 
 
-            //services.AddCors ( o => o.AddPolicy ( "AllowSpecificOrigin", builder =>
-            //{
-            //    builder.AllowAnyOrigin ()
-            //           .AllowAnyMethod ()
-            //           .AllowAnyHeader ();
-            //} ) );
 
             services.AddControllers ();
             // Inserción de dependencias
@@ -69,12 +63,6 @@ namespace EmployeeWebAPI
                 app.UseDeveloperExceptionPage ();
             }
 
-            // configurar JS y HTMl
-            //app.UseDefaultFiles ();
-
-            //app.UseStaticFiles ();
-
-         
 
             app.UseHttpsRedirection ();
 

@@ -72,7 +72,7 @@ namespace EmployeeWebAPI.Controllers
                 return BadRequest ();
             }
 
-            _context.Entry ( employee ).State = EntityState.Modified;
+            _context.Entry (employee ).State = EntityState.Modified;
 
             try
             {

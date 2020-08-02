@@ -15,6 +15,6 @@ namespace EmployeeWebAPI.Models
 
         public string PositionJob { get; set; }
 
-        public decimal Salary { get; set; }
+        public int Salary { get; set; }
     }
 }
